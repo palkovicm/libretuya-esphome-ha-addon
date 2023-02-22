@@ -33,4 +33,4 @@ name: LibreTuya ESPHome
 version: 20230214-25e1c49a
 slug: libretuya-esphome
 description: ESPHome add-on for intelligently managing all your Tuya devices
-image: ghcr.io/palkovicm/libretuya-esphome-hassio
+image: ghcr.io/palkovicm/libretuya-esphome-hassio-{arch}
