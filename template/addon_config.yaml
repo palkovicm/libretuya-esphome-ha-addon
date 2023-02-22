@@ -23,7 +23,7 @@ base: &base
     - ssl:ro
     - config:rw
   discovery:
-    - esphome
+    - libretuya 
   schema:
     status_use_ping: bool?
     streamer_mode: bool?
@@ -41,10 +41,10 @@ base: &base
 
 esphome-stable:
   <<: *base
-  directory: esphome
-  name: LibreTuya ESPHome
+  directory: libretuya
+  name: LibreTuya
   version: '20230214-25e1c49a'
-  slug: libretuya-esphome
+  slug: libretuya
   description: "ESPHome add-on for intelligently managing all your Tuya devices"
   image: ghcr.io/palkovicm/libretuya-esphome-hassio-{arch}
 
