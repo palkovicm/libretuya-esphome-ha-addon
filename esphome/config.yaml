@@ -1,16 +1,14 @@
 ---
-url: https://esphome.io/
+url: https://docs.libretuya.ml/docs/projects/esphome/
 arch:
 - amd64
-- armv7
-- aarch64
 hassio_api: true
 auth_api: true
 host_network: true
 ingress: true
 ingress_port: 0
 panel_icon: mdi:chip
-uart: true
+uart: false
 ports:
   6052/tcp: null
 map:
@@ -31,8 +29,8 @@ schema:
 backup_exclude:
 - '*/*/'
 init: false
-name: ESPHome
-version: 2023.2.3
-slug: esphome
-description: ESPHome add-on for intelligently managing all your ESP8266/ESP32 devices
-image: ghcr.io/esphome/esphome-hassio
+name: LibreTuya ESPHome
+version: 20230214-25e1c49a
+slug: libretuya-esphome
+description: ESPHome add-on for intelligently managing all your Tuya devices
+image: ghcr.io/palkovicm/libretuya-esphome-hassio

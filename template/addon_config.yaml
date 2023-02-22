@@ -3,11 +3,9 @@
 #    python3 script/generate.py dev
 # to update the dev addon config (beta/stable configs will be updated on next release by release script)
 base: &base
-  url: https://esphome.io/
+  url: https://docs.libretuya.ml/docs/projects/esphome/
   arch:
     - amd64
-    - armv7
-    - aarch64
   # Uses Home Assistant Supervisor API (auth)
   hassio_api: true
   auth_api: true
@@ -18,7 +16,7 @@ base: &base
   ingress_port: 0
   panel_icon: 'mdi:chip'
   # Automatically add UART devices to add-on
-  uart: true
+  uart: false
   ports:
     '6052/tcp': null
   map:
@@ -41,53 +39,14 @@ base: &base
   # Disable docker init for s6
   init: false
 
-esphome-dev:
-  <<: *base
-  directory: esphome-dev
-  name: ESPHome (dev)
-  version: 'dev'  # DEV
-  slug: esphome-dev
-  description: "Development version of ESPHome add-on"
-  url: https://next.esphome.io/
-  stage: experimental
-  advanced: true
-  schema:
-    status_use_ping: bool?
-    streamer_mode: bool?
-    home_assistant_dashboard_integration: bool?
-    default_compile_process_limit: int(1,)?
-    esphome_fork: str?
-    ssl: bool?
-    certfile: str?
-    keyfile: str?
-    relative_url: str?
-    leave_front_door_open: bool?
-  base_image: ghcr.io/esphome/esphome-hassio:dev
-  options:
-      home_assistant_dashboard_integration: false
-
-esphome-beta:
-  <<: *base
-  directory: esphome-beta
-  name: ESPHome (beta)
-  version: '2023.2.3'  # BETA
-  slug: esphome-beta
-  description: "Beta version of ESPHome add-on"
-  url: https://beta.esphome.io/
-  image: ghcr.io/esphome/esphome-hassio
-  stage: experimental
-  advanced: true
-  options:
-      home_assistant_dashboard_integration: false
-
 esphome-stable:
   <<: *base
   directory: esphome
-  name: ESPHome
-  version: '2023.2.3'  # STABLE
-  slug: esphome
-  description: "ESPHome add-on for intelligently managing all your ESP8266/ESP32 devices"
-  image: ghcr.io/esphome/esphome-hassio
+  name: LibreTuya ESPHome
+  version: '20230214-25e1c49a'
+  slug: libretuya-esphome
+  description: "ESPHome add-on for intelligently managing all your Tuya devices"
+  image: ghcr.io/palkovicm/libretuya-esphome-hassio
 
 copy_files:
   CHANGELOG.md:

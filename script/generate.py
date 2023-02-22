@@ -10,8 +10,6 @@ import sys
 
 class Channel(Enum):
     stable = "stable"
-    beta = "beta"
-    dev = "dev"
 
 
 def main(args):
@@ -46,16 +44,6 @@ def main(args):
         path = dir_ / "FILES ARE GENERATED DO NOT EDIT"
         with open(path, "w") as f:
             f.write("Any edits should be made to the files in the 'template' directory")
-
-        if channel == Channel.dev:
-            path = dir_ / "build.yaml"
-            build_conf = {
-                "build_from": {
-                    arch: base_image for arch in conf["arch"]
-                }
-            }
-            with open(path, "w") as f:
-                yaml.dump(build_conf, f, indent=2, sort_keys=True, explicit_start=True)
 
 
 if __name__ == "__main__":
